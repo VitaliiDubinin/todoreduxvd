@@ -6,17 +6,20 @@ import InputField from "./components/InputField.jsx";
 import "./App.css";
 
 function App() {
-  const [text, setText] = useState("");
+  const [itemtext, setItemtext] = useState("");
+  // console.log(itemtext);
   const dispatch = useDispatch();
   const addTask = () => {
-    dispatch(addTodo({ text }));
-    setText("");
+    console.log(itemtext);
+    dispatch(addTodo({ itemtext }));
+
+    setItemtext("");
   };
 
   return (
     <>
       <div className="App">
-        <InputField text={text} handleInput={setText} handleSubmit={addTask} />
+        <InputField item={itemtext} handleInput={setItemtext} handleSubmit={addTask} />
         <TodoList />
       </div>
     </>
