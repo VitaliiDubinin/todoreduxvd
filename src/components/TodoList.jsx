@@ -6,14 +6,15 @@ import { useSelector } from "react-redux";
 import TodoItem from "./TodoItem";
 
 const mapStateToProps = (state) => {
-  console.log(state.todos);
+  // console.log(state.todos);
   // console.log(state.todos.item);
   return {
     todos: state,
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, id) => {
+  console.log(id);
   return {
     addTodo: (obj) => dispatch(addTodo(obj)),
     removeTodo: (id) => dispatch(removeTodo(id)),
@@ -29,8 +30,8 @@ const TodoList = (props) => {
   const newar = props.todos.todos.todos;
   // console.log(newar[0].id);
   const array = newar.map((e) => e.id);
-  console.log(array);
-  console.log(array.length);
+  // console.log(array);
+  // console.log(array.length);
   // console.log("newar:" + newar[0].id);
   const [sort, setSort] = useState("active");
   return (

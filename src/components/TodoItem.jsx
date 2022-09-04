@@ -6,8 +6,9 @@ import { updateTodo, removeTodo, toggleTodoComplete } from "../app/todoSlice";
 
 // const TodoItem = ({ id, item, completed }) => {
 const TodoItem = (props) => {
-  console.log(props);
-  console.log(props.id);
+  const dispatch = useDispatch();
+  // console.log(props);
+  // console.log(props.id);
 
   // const array = props.map((e) => e);
   // console.log(array);
@@ -22,6 +23,7 @@ const TodoItem = (props) => {
   };
 
   const update = (id, value, e) => {
+    // console.log(props.id, inputRef.current.value, e);
     if (e.which === 13) {
       //here 13 is key code for enter key
       updateTodo({ id, item: value });
@@ -37,7 +39,7 @@ const TodoItem = (props) => {
         {props.item}----
       </span> */}
 
-      <textarea ref={inputRef} disabled={inputRef} defaultValue={props.item} onKeyPress={(e) => update(item.id, inputRef.current.value, e)} />
+      <textarea ref={inputRef} disabled={inputRef} defaultValue={props.item} onKeyPress={(e) => update(props.id, inputRef.current.value, e)} />
       <div className="btns">
         <button whileHover={{ scale: 1.4 }} whileTap={{ scale: 0.9 }} onClick={() => changeFocus()}>
           {" "}
@@ -49,9 +51,9 @@ const TodoItem = (props) => {
         </button>{" "}
       </div>
 
-      {/* <span className="delete" onClick={() => dispatch(removeTodo({ id }))}>
+      <span className="delete" onClick={() => dispatch(removeTodo({ item }))}>
         &times;
-      </span> */}
+      </span>
       {/* <span className="change" onClick={() => onEditToggle(id, content)}>
         HHH
       </span> */}

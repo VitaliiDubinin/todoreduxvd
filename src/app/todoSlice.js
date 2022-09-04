@@ -20,6 +20,7 @@ const todoSlice = createSlice({
     },
 
     removeTodo(state, action) {
+      console.log(state);
       state.todos = state.todos.filter((todo) => todo.id !== action.payload.id);
     },
     toggleTodoComplete(state, action) {
