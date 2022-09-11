@@ -38,6 +38,9 @@ const TodoItem = (props) => {
         {props.id}
         {props.item}----
       </span> */}
+      {/* <span className="delete" onClick={() => dispatch(removeTodo({ item }))}>
+        &times;
+      </span> */}
 
       <textarea ref={inputRef} disabled={inputRef} defaultValue={props.item} onKeyPress={(e) => update(props.id, inputRef.current.value, e)} />
       <div className="btns">
@@ -45,15 +48,15 @@ const TodoItem = (props) => {
           {" "}
           <AiFillEdit />{" "}
         </button>
-        <button whileHover={{ scale: 1.4 }} whileTap={{ scale: 0.9 }} style={{ color: "red" }} onClick={() => removeTodo(item.id)}>
+        <button whileHover={{ scale: 1.4 }} whileTap={{ scale: 0.9 }} style={{ color: "green" }} onClick={() => completeTodo(props.id)}>
+          <IoCheckmarkDoneSharp />
+        </button>
+        <button whileHover={{ scale: 1.4 }} whileTap={{ scale: 0.9 }} style={{ color: "red" }} onClick={() => removeTodo(props.id)}>
           {" "}
           <IoClose />
         </button>{" "}
       </div>
 
-      <span className="delete" onClick={() => dispatch(removeTodo({ item }))}>
-        &times;
-      </span>
       {/* <span className="change" onClick={() => onEditToggle(id, content)}>
         HHH
       </span> */}
