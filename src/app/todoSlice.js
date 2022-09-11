@@ -8,7 +8,7 @@ const todoSlice = createSlice({
   reducers: {
     addTodo(state, action) {
       // console.log(state);
-      console.log(action.payload.itemtext);
+      // console.log(action.payload.itemtext);
       state.todos.push({
         id: new Date().toISOString(),
         item: action.payload.itemtext,
@@ -20,25 +20,35 @@ const todoSlice = createSlice({
     },
 
     removeTodo(state, action) {
-      console.log(state);
+      // console.log(state);
       state.todos = state.todos.filter((todo) => todo.id !== action.payload);
     },
     toggleTodoComplete(state, action) {
-      console.log(state);
+      // console.log(state);
+      // console.log(action.payload);
       const toggledTodo = state.todos.find((todo) => todo.id === action.payload);
       toggledTodo.completed = !toggledTodo.completed;
     },
 
     updateTodo: (state, action) => {
-      return state.map((todo) => {
-        if (todo.id === action.payload.id) {
-          return {
-            ...todo,
-            item: action.payload.item,
-          };
-        }
-        return todo;
-      });
+      // console.log(state);
+      // console.log(action.payload.id);
+      // return state.map((todo) => {
+      // return action.payload.map((todo) => {
+      // console.log(todo);
+      // if (todo.id === action.payload.id) {
+      //   return {
+      //     ...todo,
+      //     item: action.payload.item,
+      //   };
+      // }
+      // return todo;
+      const updateTodo = state.todos.find((todo) => todo.id === action.payload.id);
+      updateTodo.item = action.payload.item;
+      // const toggledTodo = state.todos.find((todo) => todo.id === action.payload.id);
+      // toggledTodo.completed = !toggledTodo.completed;
+
+      // });
     },
   },
 });

@@ -23,8 +23,12 @@ const TodoItem = (props) => {
   };
 
   const update = (id, value, e) => {
-    // console.log(props.id, inputRef.current.value, e);
+    // console.log(props.id);
+    // console.log(inputRef.current.value);
+    // console.log(e.which);
+    // console.log(value);
     if (e.which === 13) {
+      console.log(value);
       //here 13 is key code for enter key
       updateTodo({ id, item: value });
       inputRef.current.disabled = true;
