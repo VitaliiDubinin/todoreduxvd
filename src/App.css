@@ -1,5 +1,10 @@
 .App {
   text-align: center;
-  color: red;
+  color: blue;
   background-color: aqua;
+  font-size: larger;
+}
+
+li {
+  list-style-type: none;
 }
